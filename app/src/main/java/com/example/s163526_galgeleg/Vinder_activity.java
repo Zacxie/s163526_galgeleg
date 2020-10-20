@@ -26,10 +26,8 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
         Bundle extras = getIntent().getExtras();
         if(extras !=null) {
             String value = extras.getString("KEY");
-            tries_textview.setText(value);
+            tries_textview.setText("Antal forsøg: "+value);
         }
-
-
     }
 
     @Override

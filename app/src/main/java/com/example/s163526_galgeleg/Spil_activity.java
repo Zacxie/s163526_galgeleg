@@ -48,11 +48,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
             i.putExtra("KEY",  galgeLogik.getBrugteBogstaver().size()+"");
             startActivity(i);
 
-        } else if (galgeLogik.erSpilletTabt()) {
-            Intent i = new Intent(this, Taber_activity.class);
-            i.putExtra("KEY", galgeLogik.getOrdet());
-            startActivity(i);
-        } else if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
+        }  else if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
             word_textView.setText(galgeLogik.getSynligtOrd());
             usedLetters_textview.setText(galgeLogik.getBrugteBogstaver().toString());
             letter_EditText.setText("");
@@ -76,6 +72,10 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
                 case 5:
                     hangman_imageView.setImageResource(R.drawable.forkert5);
                     break;
+                case 6:
+                    Intent i = new Intent(this, Taber_activity.class);
+                    i.putExtra("KEY", galgeLogik.getOrdet());
+                    startActivity(i);
             }
         }
 
