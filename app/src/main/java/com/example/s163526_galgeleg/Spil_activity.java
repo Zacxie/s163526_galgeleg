@@ -26,10 +26,20 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
         bogstav_textView = findViewById(R.id.bogstav_textView);
         letter_EditText = findViewById(R.id.letter_EditText);
         hangman_imageView = findViewById(R.id.hangman_imageView);
+
+        hangman_imageView.setImageResource(R.drawable.forkert1);
     }
 
     @Override
     public void onClick(View v) {
+        if (v == guess_Button) {
+            //TODO tjek om svar er korrekt, wipe letter_EditText og opdater word_textView eller ImageView
+
+            //TODO Hvis ord er gættet, tilføj til score og skift skærmbillede til vinder
+
+            //TODO Hvis ord ikke blev gættet, tilføje score of skift skræmbillede til taber
+
+        }
 
     }
 }
