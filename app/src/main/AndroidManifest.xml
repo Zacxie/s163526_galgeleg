@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Highscore_actitivty"></activity>
+        <activity android:name=".Taber_activity"></activity>
+        <activity android:name=".Vinder_activity" />
+        <activity android:name=".Highscore_actitivty" />
         <activity android:name=".Spil_activity" />
         <activity android:name=".HovedMenu">
             <intent-filter>

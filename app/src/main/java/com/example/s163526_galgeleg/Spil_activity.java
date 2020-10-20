@@ -27,7 +27,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
         letter_EditText = findViewById(R.id.letter_EditText);
         hangman_imageView = findViewById(R.id.hangman_imageView);
 
-        hangman_imageView.setImageResource(R.drawable.forkert1);
+        hangman_imageView.setImageResource(R.drawable.galge);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
 
             //TODO Hvis ord er gættet, tilføj til score og skift skærmbillede til vinder
 
-            //TODO Hvis ord ikke blev gættet, tilføje score of skift skræmbillede til taber
+            //TODO Hvis ord ikke blev gættet, tilføj score og skift skræmbillede til taber
 
         }
 
