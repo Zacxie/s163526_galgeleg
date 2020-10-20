@@ -23,6 +23,13 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
 
         wonExit_button.setOnClickListener(this);
 
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null) {
+            String value = extras.getString("KEY");
+            tries_textview.setText(value);
+        }
+
+
     }
 
     @Override

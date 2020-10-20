@@ -40,8 +40,19 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         galgeLogik.gætBogstav(letter_EditText.getText().toString()); // gæt bogstav
+        System.out.println(galgeLogik.getAntalForkerteBogstaver());
+        System.out.println(galgeLogik.erSpilletTabt());
 
-        if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
+        if (galgeLogik.erSpilletVundet()) {
+            Intent i = new Intent(this, Vinder_activity.class);
+            i.putExtra("KEY",  galgeLogik.getBrugteBogstaver().size()+"");
+            startActivity(i);
+
+        } else if (galgeLogik.erSpilletTabt()) {
+            Intent i = new Intent(this, Taber_activity.class);
+            i.putExtra("KEY", galgeLogik.getOrdet());
+            startActivity(i);
+        } else if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
             word_textView.setText(galgeLogik.getSynligtOrd());
             usedLetters_textview.setText(galgeLogik.getBrugteBogstaver().toString());
             letter_EditText.setText("");
@@ -49,12 +60,28 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
         } else if (!galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var forkert
             usedLetters_textview.setText(galgeLogik.getBrugteBogstaver().toString());
             letter_EditText.setText("");
-            hangman_imageView.setImageResource(R.drawable.forkert1);
+            switch (galgeLogik.getAntalForkerteBogstaver()) {
+                case 1:
+                    hangman_imageView.setImageResource(R.drawable.forkert1);
+                    break;
+                case 2:
+                    hangman_imageView.setImageResource(R.drawable.forkert2);
+                    break;
+                case 3:
+                    hangman_imageView.setImageResource(R.drawable.forkert3);
+                    break;
+                case 4:
+                    hangman_imageView.setImageResource(R.drawable.forkert4);
+                    break;
+                case 5:
+                    hangman_imageView.setImageResource(R.drawable.forkert5);
+                    break;
+            }
         }
 
         //TODO Hvis ord er gættet, tilføj til score og skift skærmbillede til vinder
 
-        //TODO Hvis ord ikke blev gættet, tilføj score og skift skræmbillede til taber
+        //TODO Hvis ord ikke blev gættet, skift skræmbillede til taber
 
 
 
