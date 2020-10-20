@@ -20,7 +20,7 @@
         android:layout_toEndOf="@+id/billede_listeelem"
         android:layout_toRightOf="@+id/billede_listeelem"
         android:text="overskrift"
-        android:textColor="#090909"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
 
