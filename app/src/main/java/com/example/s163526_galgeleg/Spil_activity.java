@@ -46,6 +46,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
         if (galgeLogik.erSpilletVundet()) {
             Intent i = new Intent(this, Vinder_activity.class);
             i.putExtra("KEY",  galgeLogik.getBrugteBogstaver().size()+"");
+            i.putExtra("Ord",  galgeLogik.getOrdet());
             startActivity(i);
 
         }  else if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
