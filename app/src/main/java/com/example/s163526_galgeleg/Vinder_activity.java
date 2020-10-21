@@ -53,6 +53,5 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
             Intent i = new Intent(this, HovedMenu.class);
             startActivity(i);
         }
-
     }
 }

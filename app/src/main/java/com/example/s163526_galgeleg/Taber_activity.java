@@ -33,7 +33,6 @@ public class Taber_activity extends AppCompatActivity implements View.OnClickLis
             String value = extras.getString("KEY");
             lostWord_textview.setText("Ord du skulle have gættet: "+value);
         }
-
     }
 
     @Override
@@ -42,6 +41,5 @@ public class Taber_activity extends AppCompatActivity implements View.OnClickLis
             Intent i = new Intent(this, HovedMenu.class);
             startActivity(i);
         }
-
     }
 }

@@ -56,9 +56,6 @@ public class Highscore_actitivty extends AppCompatActivity {
             //overskrift.setText(prefs.getString("Score", "Ingen dato tilgængelig"));
 
             overskrift.setText(scoreArrayList.get(position));
-
         }
-
     };
-
 }
