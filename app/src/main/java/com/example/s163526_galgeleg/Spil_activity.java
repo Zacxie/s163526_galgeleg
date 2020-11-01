@@ -51,7 +51,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
             i.putExtra("Ord", galgeLogik.getOrdet());
             startActivity(i);
 
-        } else if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
+        } else if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt.
             word_textview.setText(galgeLogik.getSynligtOrd());
             usedLetters_textview.setText(galgeLogik.getBrugteBogstaver().toString());
             letter_edittext.setText("");
