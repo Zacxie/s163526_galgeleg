@@ -1,10 +1,5 @@
 package com.example.s163526_galgeleg;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class Highscore_actitivty extends AppCompatActivity {
@@ -38,15 +33,13 @@ public class Highscore_actitivty extends AppCompatActivity {
         setContentView(highscore_recyclerView);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        int count = prefs.getInt("count",0);
-        for(int i=1; i<=count;i++){
-            scoreArrayList.add(prefs.getString("Score"+i,""));
+        int count = prefs.getInt("count", 0);
+        for (int i = 1; i <= count; i++) {
+            scoreArrayList.add(prefs.getString("Score" + i, ""));
 
         }
-            System.out.println(scoreArrayList.toString());
+        System.out.println(scoreArrayList.toString());
     }
-
-
 
 
     RecyclerView.Adapter adapter = new RecyclerView.Adapter() {

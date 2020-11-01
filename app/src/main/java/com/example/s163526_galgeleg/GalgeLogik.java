@@ -1,19 +1,13 @@
 package com.example.s163526_galgeleg;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Random;
 
-public class GalgeLogik {
+public class GalgeLogik implements GalgeLogik_Interface {
     /**
      * AHT afprøvning er muligeOrd synlig på pakkeniveau
      */
-    private static GalgeLogik instance = new GalgeLogik();
+
 
     ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
@@ -24,7 +18,7 @@ public class GalgeLogik {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
 
-    private GalgeLogik() {
+    public GalgeLogik() {
         indlæsOrd();
         startNytSpil();
     }
@@ -39,7 +33,7 @@ public class GalgeLogik {
         muligeOrd.add("skovsnegl");
         muligeOrd.add("solsort");
         muligeOrd.add("tyve");
-        return instance;
+        return this;
     }
 
     public ArrayList<String> getBrugteBogstaver() {
@@ -84,11 +78,11 @@ public class GalgeLogik {
         ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
         System.out.println("Nyt spil - det skjulte ord er: " + ordet);
         opdaterSynligtOrd();
-        return instance;
+        return this;
     }
 
 
-    private void opdaterSynligtOrd() {
+    public void opdaterSynligtOrd() {
         synligtOrd = "";
         spilletErVundet = true;
         for (int n = 0; n < ordet.length(); n++) {
@@ -103,10 +97,10 @@ public class GalgeLogik {
     }
 
     public GalgeLogik gætBogstav(String bogstav) {
-        if (bogstav.length() != 1) return instance;
+        if (bogstav.length() != 1) return this;
         System.out.println("Der gættes på bogstavet: " + bogstav);
-        if (brugteBogstaver.contains(bogstav)) return instance;
-        if (spilletErVundet || spilletErTabt) return instance;
+        if (brugteBogstaver.contains(bogstav)) return this;
+        if (spilletErVundet || spilletErTabt) return this;
 
         brugteBogstaver.add(bogstav);
 
@@ -123,7 +117,7 @@ public class GalgeLogik {
             }
         }
         opdaterSynligtOrd();
-        return instance;
+        return this;
     }
 
     public GalgeLogik logStatus() {
@@ -135,13 +129,8 @@ public class GalgeLogik {
         if (spilletErTabt) System.out.println("- SPILLET ER TABT");
         if (spilletErVundet) System.out.println("- SPILLET ER VUNDET");
         System.out.println("---------- ");
-        return instance;
+        return this;
     }
 
-
-
-    public static GalgeLogik getInstance() {
-        return instance;
-    }
 
 }
