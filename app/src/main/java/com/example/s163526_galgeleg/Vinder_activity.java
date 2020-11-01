@@ -41,6 +41,8 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
             tries_textview.setText("Antal forsøg: " + tries);
             ord = extras.getString("Ord");
         }
+
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -48,8 +50,11 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == wonExit_button) {
 
-            prefs.edit().putString("Score", "Ord: "+ord+". Forsøg: "+tries+".").apply();
-            highscore_actitivty.scoreArrayList.add("Ord: "+ord+". Forsøg: "+tries+".");
+            int count = prefs.getInt("count",0);
+            count++;
+            prefs.edit().putString("Score"+count, "Ord: "+ord+". Forsøg: "+tries+".").apply();
+            prefs.edit().putInt("count",count).apply();
+
             Intent i = new Intent(this, HovedMenu.class);
             startActivity(i);
         }

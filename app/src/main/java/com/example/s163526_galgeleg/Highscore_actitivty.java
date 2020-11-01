@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,12 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class Highscore_actitivty extends AppCompatActivity {
 
 
-    public static ArrayList<String> scoreArrayList = new ArrayList<>();
+    private ArrayList<String> scoreArrayList = new ArrayList<>();
 
     RecyclerView highscore_recyclerView;
     SharedPreferences prefs;
@@ -32,9 +37,17 @@ public class Highscore_actitivty extends AppCompatActivity {
 
         setContentView(highscore_recyclerView);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        System.out.println("kdsakdjskajdksajkdsjadjksajdksajdsjakdsjasdj "+ scoreArrayList.size());
 
+        int count = prefs.getInt("count",0);
+        for(int i=1; i<=count;i++){
+            scoreArrayList.add(prefs.getString("Score"+i,""));
+
+        }
+            System.out.println(scoreArrayList.toString());
     }
+
+
+
 
     RecyclerView.Adapter adapter = new RecyclerView.Adapter() {
         @Override

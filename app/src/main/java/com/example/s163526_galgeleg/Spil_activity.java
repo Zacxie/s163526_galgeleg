@@ -16,10 +16,10 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
     TextView word_textview, bogstav_textview, usedLetters_textview;
     EditText letter_edittext;
     ImageView hangman_imageview;
-    GalgeLogik galgeLogik = new GalgeLogik();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        GalgeLogik.getInstance().startNytSpil();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spil);
 
@@ -33,31 +33,31 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
         guess_button.setOnClickListener(this);
 
         hangman_imageview.setImageResource(R.drawable.galge);
-        word_textview.setText(galgeLogik.getSynligtOrd());
+        word_textview.setText(GalgeLogik.getInstance().getSynligtOrd());
 
     }
 
     @Override
     public void onClick(View v) {
-        galgeLogik.gætBogstav(letter_edittext.getText().toString()); // gæt bogstav
-        System.out.println(galgeLogik.getAntalForkerteBogstaver());
-        System.out.println(galgeLogik.erSpilletTabt());
+        GalgeLogik.getInstance().gætBogstav(letter_edittext.getText().toString()); // gæt bogstav
+        System.out.println(GalgeLogik.getInstance().getAntalForkerteBogstaver());
+        System.out.println(GalgeLogik.getInstance().erSpilletTabt());
 
-        if (galgeLogik.erSpilletVundet()) {
+        if (GalgeLogik.getInstance().erSpilletVundet()) {
             Intent i = new Intent(this, Vinder_activity.class);
-            i.putExtra("KEY", galgeLogik.getBrugteBogstaver().size() + "");
-            i.putExtra("Ord", galgeLogik.getOrdet());
+            i.putExtra("KEY", GalgeLogik.getInstance().getBrugteBogstaver().size() + "");
+            i.putExtra("Ord", GalgeLogik.getInstance().getOrdet());
             startActivity(i);
 
-        } else if (galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
-            word_textview.setText(galgeLogik.getSynligtOrd());
-            usedLetters_textview.setText(galgeLogik.getBrugteBogstaver().toString());
+        } else if (GalgeLogik.getInstance().erSidsteBogstavKorrekt()) { //hvis bogstav var korrekt
+            word_textview.setText(GalgeLogik.getInstance().getSynligtOrd());
+            usedLetters_textview.setText(GalgeLogik.getInstance().getBrugteBogstaver().toString());
             letter_edittext.setText("");
 
-        } else if (!galgeLogik.erSidsteBogstavKorrekt()) { //hvis bogstav var forkert
-            usedLetters_textview.setText(galgeLogik.getBrugteBogstaver().toString());
+        } else if (!GalgeLogik.getInstance().erSidsteBogstavKorrekt()) { //hvis bogstav var forkert
+            usedLetters_textview.setText(GalgeLogik.getInstance().getBrugteBogstaver().toString());
             letter_edittext.setText("");
-            switch (galgeLogik.getAntalForkerteBogstaver()) {
+            switch (GalgeLogik.getInstance().getAntalForkerteBogstaver()) {
                 case 1:
                     hangman_imageview.setImageResource(R.drawable.forkert1);
                     break;
@@ -75,7 +75,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
                     break;
                 case 6:
                     Intent i = new Intent(this, Taber_activity.class);
-                    i.putExtra("KEY", galgeLogik.getOrdet());
+                    i.putExtra("KEY", GalgeLogik.getInstance().getOrdet());
                     startActivity(i);
             }
         }

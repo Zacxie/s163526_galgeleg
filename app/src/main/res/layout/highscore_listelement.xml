@@ -9,13 +9,9 @@
         android:id="@+id/dato_listeelem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/billede_listeelem"
-        android:layout_toEndOf="@+id/billede_listeelem"
-        android:layout_toRightOf="@+id/billede_listeelem"
         android:text="Text"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
-
 
 </RelativeLayout>
