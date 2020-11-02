@@ -1,13 +1,13 @@
 package com.example.s163526_galgeleg;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Taber_activity extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,9 +29,9 @@ public class Taber_activity extends AppCompatActivity implements View.OnClickLis
         lost_imageView.setImageResource(R.drawable.forkert6);
 
         Bundle extras = getIntent().getExtras();
-        if(extras !=null) {
+        if (extras != null) {
             String value = extras.getString("KEY");
-            lostWord_textview.setText("Ord du skulle have gættet: "+value);
+            lostWord_textview.setText("Ord du skulle have gættet: " + value);
         }
     }
 

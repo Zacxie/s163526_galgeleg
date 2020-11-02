@@ -2,7 +2,7 @@ package com.example.s163526_galgeleg;
 
 import java.util.ArrayList;
 
-public interface GalgeLogik_Interface {
+public interface Logik_Interface {
 
     ArrayList<String> getBrugteBogstaver();
 
@@ -20,14 +20,13 @@ public interface GalgeLogik_Interface {
 
     boolean erSpilletSlut();
 
-    GalgeLogik startNytSpil();
+    Logik_Interface startNytSpil();
 
-    GalgeLogik_Interface indlæsOrd();
+    Logik_Interface indlæsOrd();
 
-    GalgeLogik_Interface gætBogstav(String bogstav);
+    Logik_Interface gætBogstav(String bogstav);
 
-    GalgeLogik_Interface logStatus();
-
+    Logik_Interface logStatus();
 
 
 }

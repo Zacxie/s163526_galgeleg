@@ -17,7 +17,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
     EditText letter_edittext;
     ImageView hangman_imageview;
 
-    private GalgeLogik_Interface galgeLogik = GalgelegFactory.getInstance().getSession("Standard");
+    private Logik_Interface galgeLogik = Factory.getInstance().getSession("Standard");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

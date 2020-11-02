@@ -8,14 +8,11 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Vinder_activity extends AppCompatActivity implements View.OnClickListener {
-
-    Highscore_actitivty highscore_actitivty = new Highscore_actitivty();
 
     SharedPreferences prefs;
     Button wonExit_button;
@@ -50,10 +47,10 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == wonExit_button) {
 
-            int count = prefs.getInt("count",0);
+            int count = prefs.getInt("count", 0);
             count++;
-            prefs.edit().putString("Score"+count, "Ord: "+ord+". Forsøg: "+tries+".").apply();
-            prefs.edit().putInt("count",count).apply();
+            prefs.edit().putString("Score" + count, "Ord: " + ord + ". Forsøg: " + tries + ".").apply();
+            prefs.edit().putInt("count", count).apply();
 
             Intent i = new Intent(this, HovedMenu.class);
             startActivity(i);

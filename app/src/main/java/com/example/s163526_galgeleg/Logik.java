@@ -3,11 +3,7 @@ package com.example.s163526_galgeleg;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GalgeLogik implements GalgeLogik_Interface {
-    /**
-     * AHT afprøvning er muligeOrd synlig på pakkeniveau
-     */
-
+public class Logik implements Logik_Interface {
 
     ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
@@ -18,12 +14,12 @@ public class GalgeLogik implements GalgeLogik_Interface {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
 
-    public GalgeLogik() {
+    public Logik() {
         indlæsOrd();
         startNytSpil();
     }
 
-    public GalgeLogik indlæsOrd() {
+    public Logik_Interface indlæsOrd() {
         muligeOrd.add("bil");
         muligeOrd.add("computer");
         muligeOrd.add("programmering");
@@ -69,7 +65,7 @@ public class GalgeLogik implements GalgeLogik_Interface {
     }
 
 
-    public GalgeLogik startNytSpil() {
+    public Logik_Interface startNytSpil() {
         brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
         spilletErVundet = false;
@@ -96,7 +92,7 @@ public class GalgeLogik implements GalgeLogik_Interface {
         }
     }
 
-    public GalgeLogik gætBogstav(String bogstav) {
+    public Logik_Interface gætBogstav(String bogstav) {
         if (bogstav.length() != 1) return this;
         System.out.println("Der gættes på bogstavet: " + bogstav);
         if (brugteBogstaver.contains(bogstav)) return this;
@@ -120,7 +116,7 @@ public class GalgeLogik implements GalgeLogik_Interface {
         return this;
     }
 
-    public GalgeLogik logStatus() {
+    public Logik_Interface logStatus() {
         System.out.println("---------- ");
         System.out.println("- ordet (skult) = " + ordet);
         System.out.println("- synligtOrd = " + synligtOrd);

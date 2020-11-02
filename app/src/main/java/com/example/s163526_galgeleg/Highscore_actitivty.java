@@ -59,7 +59,6 @@ public class Highscore_actitivty extends AppCompatActivity {
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder vh, int position) {
             TextView overskrift = vh.itemView.findViewById(R.id.dato_listeelem);
-            //overskrift.setText(prefs.getString("Score", "Ingen dato tilgængelig"));
 
             overskrift.setText(scoreArrayList.get(position));
         }
