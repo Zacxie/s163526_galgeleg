@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="5dp">
 
     <TextView
-        android:id="@+id/dato_listeelem"
+        android:id="@+id/listeelem_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Text"
-        android:textColor="#000000"
+        android:text="Ord"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/listeelem_tries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listeelem_word"
+        android:text="Forsøg"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/listeelem_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listeelem_tries"
+        android:text="Kategori"
+        android:textSize="12sp"/>
 
 </RelativeLayout>
