@@ -28,5 +28,5 @@ public interface Logik_Interface {
 
     Logik_Interface logStatus();
 
-
+    void hentOrdFraRegneark(String s) throws Exception;
 }

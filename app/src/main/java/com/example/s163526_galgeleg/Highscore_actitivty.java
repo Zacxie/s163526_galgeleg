@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Highscore_actitivty extends AppCompatActivity {
 
 
-    private ArrayList<String> scoreArrayList = new ArrayList<>();
+    //private ArrayList<String> scoreArrayList = new ArrayList<>();
 
     RecyclerView highscore_recyclerView;
     SharedPreferences prefs;
@@ -33,19 +33,19 @@ public class Highscore_actitivty extends AppCompatActivity {
         setContentView(highscore_recyclerView);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        int count = prefs.getInt("count", 0);
+        /*int count = prefs.getInt("count", 0);
         for (int i = 1; i <= count; i++) {
             scoreArrayList.add(prefs.getString("Score" + i, ""));
 
         }
-        System.out.println(scoreArrayList.toString());
+        System.out.println(scoreArrayList.toString());*/
     }
 
 
     RecyclerView.Adapter adapter = new RecyclerView.Adapter() {
         @Override
         public int getItemCount() {
-            return scoreArrayList.size();
+            return prefs.getInt("count",0);
         }
 
         @Override
@@ -58,9 +58,13 @@ public class Highscore_actitivty extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder vh, int position) {
-            //TextView overskrift = vh.itemView.findViewById(R.id.dato_listeelem);
+            TextView ord = vh.itemView.findViewById(R.id.listeelem_word);
+            TextView tries = vh.itemView.findViewById(R.id.listeelem_tries);
+            position+=1;
 
-            //overskrift.setText(scoreArrayList.get(position));
+            ord.setText(prefs.getString("Ord"+position,""));
+            tries.setText(prefs.getString("Score"+position, ""));
+
         }
     };
 }

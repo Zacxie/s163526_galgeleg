@@ -2,6 +2,8 @@ package com.example.s163526_galgeleg;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,12 +12,17 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 public class Spil_activity extends AppCompatActivity implements View.OnClickListener {
 
     Button guess_button;
     TextView word_textview, bogstav_textview, usedLetters_textview;
     EditText letter_edittext;
     ImageView hangman_imageview;
+    Executor bgThread = Executors.newSingleThreadExecutor(); // baggrundstråd
+    Handler mainThread = new Handler((Looper.getMainLooper())); //maintråd
 
     private Logik_Interface galgeLogik = Factory.getInstance().getSession("Standard");
 
@@ -36,6 +43,22 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
 
         hangman_imageview.setImageResource(R.drawable.galge);
         word_textview.setText(galgeLogik.getSynligtOrd());
+
+        bgThread.execute(() -> {
+            try{
+
+                galgeLogik.hentOrdFraRegneark("12");
+
+                mainThread.post(() -> {
+                    word_textview.setText("arbejder");
+                    galgeLogik.startNytSpil();
+                    word_textview.setText(galgeLogik.getSynligtOrd());
+                });
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
 
     }
 

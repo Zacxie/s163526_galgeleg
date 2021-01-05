@@ -22,12 +22,5 @@
         android:text="Forsøg"
         android:textSize="12sp"/>
 
-    <TextView
-        android:id="@+id/listeelem_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/listeelem_tries"
-        android:text="Kategori"
-        android:textSize="12sp"/>
 
 </RelativeLayout>

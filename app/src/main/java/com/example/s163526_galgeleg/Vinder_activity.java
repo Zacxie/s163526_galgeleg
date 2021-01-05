@@ -45,6 +45,10 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
             ord = extras.getString("Ord");
         }
 
+
+
+
+
         sound = MediaPlayer.create(this, R.raw.cheer);
         sound.setVolume(1, 1);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -53,13 +57,15 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
         int fuldStyrke = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int aktuelStyrke = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         if (aktuelStyrke < fuldStyrke / 5) {
-            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, fuldStyrke / 5, AudioManager.FLAG_SHOW_UI);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, fuldStyrke / 5,
+                    AudioManager.FLAG_SHOW_UI);
         }
         sound.start();
 
         AnimationSet animationSet = new AnimationSet(true);
 
-        TranslateAnimation t = new TranslateAnimation(0, 0, 0, 200);
+        TranslateAnimation t = new TranslateAnimation(0, 0, 0,
+                200);
         t.setDuration(500);
         t.setFillAfter(true);
         t.setRepeatCount(-1);
@@ -83,10 +89,9 @@ public class Vinder_activity extends AppCompatActivity implements View.OnClickLi
 
             int count = prefs.getInt("count", 0);
             count++;
-            //prefs.edit().putString("Score" + count, "Ord: " + ord + ". Forsøg: " + tries + ".").apply();
-
-            //prefs.edit().putInt("count", count).apply();
-
+            prefs.edit().putInt("count", count).apply();
+            prefs.edit().putString("Score" + count, "Forsøg: " + tries + ".").apply();
+            prefs.edit().putString("Ord"+count, "Ord: "+ord).apply();
 
 
             Intent i = new Intent(this, HovedMenu.class);

@@ -10,7 +10,7 @@
         android:id="@+id/highscore_Button"
         android:layout_width="317dp"
         android:layout_height="41dp"
-        android:text="Highscore"
+        android:text="Scoreboard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
