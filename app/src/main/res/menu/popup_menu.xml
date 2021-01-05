@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Nem"
+        android:title="Nem" />
+    <item
+        android:id="@+id/Medium"
+        android:title="Medium" />
+    <item
+        android:id="@+id/Svær"
+        android:title="Svær" />
+</menu>
+

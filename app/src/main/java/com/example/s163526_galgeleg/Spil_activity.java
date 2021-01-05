@@ -23,6 +23,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
     ImageView hangman_imageview;
     Executor bgThread = Executors.newSingleThreadExecutor(); // baggrundstråd
     Handler mainThread = new Handler((Looper.getMainLooper())); //maintråd
+    private String mode;
 
     private Logik_Interface galgeLogik = Factory.getInstance().getSession("Standard");
 
@@ -44,13 +45,17 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
         hangman_imageview.setImageResource(R.drawable.galge);
         word_textview.setText(galgeLogik.getSynligtOrd());
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            mode= extras.getString("mode");
+        }
+
         bgThread.execute(() -> {
             try{
 
-                galgeLogik.hentOrdFraRegneark("12");
+                galgeLogik.hentOrdFraRegneark(mode);
 
                 mainThread.post(() -> {
-                    word_textview.setText("arbejder");
                     galgeLogik.startNytSpil();
                     word_textview.setText(galgeLogik.getSynligtOrd());
                 });
