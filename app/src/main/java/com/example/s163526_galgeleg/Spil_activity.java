@@ -29,7 +29,6 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        galgeLogik.startNytSpil();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spil);
 
@@ -52,7 +51,7 @@ public class Spil_activity extends AppCompatActivity implements View.OnClickList
 
         bgThread.execute(() -> {
             try{
-
+                System.out.println("jhjdwhajdhwjadhwjahdjwhdjadhwajdhajdhwjdhajdhwdhadhwahha   " + mode);
                 galgeLogik.hentOrdFraRegneark(mode);
 
                 mainThread.post(() -> {

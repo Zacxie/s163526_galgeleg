@@ -26,15 +26,7 @@ public class Logik implements Logik_Interface {
     }
 
     public Logik_Interface indlæsOrd() {
-        muligeOrd.add("bil");
-        muligeOrd.add("computer");
-        muligeOrd.add("programmering");
-        muligeOrd.add("motorvej");
-        muligeOrd.add("busrute");
-        muligeOrd.add("gangsti");
-        muligeOrd.add("skovsnegl");
-        muligeOrd.add("solsort");
-        muligeOrd.add("tyve");
+        muligeOrd.add("");
         return this;
     }
 

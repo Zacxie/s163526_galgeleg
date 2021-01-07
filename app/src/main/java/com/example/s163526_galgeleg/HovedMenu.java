@@ -48,15 +48,15 @@ public class HovedMenu extends AppCompatActivity implements View.OnClickListener
                 Intent i = new Intent(this, Spil_activity.class);
         switch (item.getItemId()) {
             case R.id.Nem:
-                i.putExtra("mode", 1);
+                i.putExtra("mode", "1");
                 startActivity(i);
                 return true;
             case R.id.Medium:
-                i.putExtra("mode", 2);
+                i.putExtra("mode", "2");
                 startActivity(i);
                 return true;
             case R.id.Svær:
-                i.putExtra("mode", 3);
+                i.putExtra("mode", "3");
                 startActivity(i);
                 return true;
         }
